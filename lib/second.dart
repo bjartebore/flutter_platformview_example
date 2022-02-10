@@ -8,11 +8,11 @@ typedef SecondWidgetCreatedCallback = void Function(
 
 class SecondWidget extends StatefulWidget {
   const SecondWidget({
-    Key key,
+    Key? key,
     this.onSecondWidgetWidgetCreated,
   }) : super(key: key);
 
-  final SecondWidgetCreatedCallback onSecondWidgetWidgetCreated;
+  final SecondWidgetCreatedCallback? onSecondWidgetWidgetCreated;
 
   @override
   State<StatefulWidget> createState() => _SecondWidgetState();
@@ -35,7 +35,7 @@ class _SecondWidgetState extends State<SecondWidget> {
     if (widget.onSecondWidgetWidgetCreated == null) {
       return;
     }
-    widget.onSecondWidgetWidgetCreated(SecondWidgetController._(id));
+    widget.onSecondWidgetWidgetCreated?.call(SecondWidgetController._(id));
   }
 }
 

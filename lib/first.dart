@@ -8,11 +8,11 @@ typedef FirstWidgetCreatedCallback = void Function(
 
 class FirstWidget extends StatefulWidget {
   const FirstWidget({
-    Key key,
+    Key? key,
     this.onFirstWidgetWidgetCreated,
   }) : super(key: key);
 
-  final FirstWidgetCreatedCallback onFirstWidgetWidgetCreated;
+  final FirstWidgetCreatedCallback? onFirstWidgetWidgetCreated;
 
   @override
   State<StatefulWidget> createState() => _FirstWidgetState();
@@ -35,7 +35,7 @@ class _FirstWidgetState extends State<FirstWidget> {
     if (widget.onFirstWidgetWidgetCreated == null) {
       return;
     }
-    widget.onFirstWidgetWidgetCreated(FirstWidgetController._(id));
+    widget.onFirstWidgetWidgetCreated?.call(FirstWidgetController._(id));
   }
 }
 
